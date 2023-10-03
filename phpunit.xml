@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <file>tests/Unit/Http/Middleware/APIKeyTest.php</file>
+            <file>tests/Unit/Http/Middleware/CorsTest.php</file>
+            <file>tests/Unit/Http/Middleware/ForceJsonResponseTest.php</file>
+            <file>tests/Unit/Http/Middleware/AuthenticateTest.php</file>
+        </testsuite>
+        <testsuite name="Feature">
+            <file>tests/Feature/Http/Controllers/security/RegistrationControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/security/LoginControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/customer/CreateCustomerControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/account/CreateAccountControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/transaction/CreateTransactionControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/account/FetchAccountBalanceControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/account/FetchAccountHistoryControllerTest.php</file>
+            <file>tests/Feature/Http/Controllers/security/LogoutControllerTest.php</file>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <!-- <env name="DB_CONNECTION" value="sqlite"/> -->
+        <!-- <env name="DB_DATABASE" value=":memory:"/> -->
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+    </php>
+</phpunit>
